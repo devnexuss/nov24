@@ -3,9 +3,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>jQuery Mobile: Theme Download</title>
-	<link rel="stylesheet" href="myTheme.min.css" />
-	<link rel="stylesheet" href="jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="themes/myTheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
@@ -51,23 +52,24 @@
                     </ul>
                 </div>
             </header>
+            
             <section class="ui-content" role="main">
-		    <p>What would you like us to contact for?</p>
-	            <a id="vprospect" href="#">vProspect 2.0</a>
-	            <a id="vretain" href="#">vRetain 1.0</a><br>
-	            <div id="solution"></div>
-	
-	            <script>
-	                $(document).ready(function(){
-	                    $("#vprospect").click(function() {
-	                        $("#solution").load("solutions.html #vprospect");
-	                    });
-	
-	                    $("#vretain").click(function() {
-	                        $("#solution").load("solutions.html #vretain");
-	                    });
-	                });
-	            </script>
+                <p>What would you like us to contact for?</p>
+                <a id="vprospect" href="#">vProspect 2.0</a>
+                <a id="vretain" href="#">vRetain 1.0</a><br>
+                <div id="solution"></div>
+
+                <script>
+                    $(document).ready(function(){
+                        $("#vprospect").click(function() {
+                            $("#solution").load("solutions.html #vprospect");
+                        });
+
+                        $("#vretain").click(function() {
+                            $("#solution").load("solutions.html #vretain");
+                        });
+                    });
+                </script>
                 <h4>Please contact us by phone, mail, or email...whatever works best for you</h4>
                 <h4>Phone</h4>
                 <p><a href="tel:555-555-5555">555-555-5555</a></p>
@@ -93,5 +95,20 @@
                     </ul>
                 </div>
           </header>
+
+          <script>
+            $(document).ready(function(){
+                $.get("team.xml", function(data){
+                    $("#team").html("");
+                    $(data).find("management").children().each(function(){
+                        var xmlDoc = $(this);
+                        $("#team").append("<h3>" +
+                        xmlDoc.find("name").text() + "</h3>" +
+                        xmlDoc.find("title").text() + "<br>" +
+                        xmlDoc.find("bio").text() + "<br>");
+                    });
+                });
+            });
+          </script>
 </body>
 </html>
