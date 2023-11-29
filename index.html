@@ -97,7 +97,7 @@
                 <div id="team"></div>
           </header>
 
-          <script>
+          <!-- <script>
             $(document).ready(function(){
                 $.get("team.xml", function(data){
                     $("#team").html("");
@@ -110,6 +110,22 @@
                     });
                 });
             });
+          </script> -->
+
+          <script>
+          $(document).ready(function(){
+            $.getJSON("team.json", function(data){
+                $.each(data, function(){
+                    $.each(this, function(key, value){
+                        $("#team").append(
+                            "Name: " + value.name + "<br>" +
+                            "Title: " + value.title + "<br>" +
+                            "Bio: " + value.bio + "<br><br>"
+                        );
+                    });
+                });
+            });
+          });
           </script>
 </body>
 </html>
