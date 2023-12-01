@@ -10,6 +10,12 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
+
+<style>
+    .ui-content iframe {
+        margin-top: 30px;
+    }
+</style>
 <body>
 	<div class="parent">
         <!-- Home page -->
@@ -53,11 +59,14 @@
                 </div>
             </header>
             
+            <center>
             <section class="ui-content" role="main">
                 <p>What would you like us to contact for?</p>
                 <a id="vprospect" href="#">vProspect 2.0</a>
                 <a id="vretain" href="#">vRetain 1.0</a><br>
                 <div id="solution"></div>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2442.819888466494!2d-113.8274313233634!3d52.24665505643127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537456a4e720485b%3A0xfad570c5678b03ce!2sRed%20Deer%20Polytechnic!5e0!3m2!1sen!2sca!4v1701465120159!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                 <script>
                     $(document).ready(function(){
@@ -80,6 +89,7 @@
                 <br>
                 <a href="#" data-role="button" data-rel="back" data-icon="back" data-theme="b">Back to the previous page</a>
             </section>
+            </center>
             <!-- <footer data-role="footer"><h4>&copy; 2023</h4></footer> -->
         </div>
 
